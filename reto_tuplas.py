@@ -40,3 +40,22 @@ while True:
         temperaturas_registradas.append(temp)
 # 7. Fuera del bucle, imprime la lista final de 'temperaturas_registradas'.
 print(f'Temperaturas Registradas: {temperaturas_registradas}')
+
+print('**********************')
+
+def telemetria(conjunto):
+    resultados_validos = []
+    conjuntoCopia = conjunto.copy()
+    while True:
+        tupla = conjuntoCopia.pop(0)
+        sensor, temp = tupla
+        if sensor == "APAGADO":
+            print(f'Sensor - {sensor}')
+            break
+        elif temp > 40.0:
+            print(f'El Sensor Fallo: {temp} - Temperatura Invalida')
+        else:
+            resultados_validos.append(temp)
+    return resultados_validos
+
+print(telemetria(flujo_telemetria))
