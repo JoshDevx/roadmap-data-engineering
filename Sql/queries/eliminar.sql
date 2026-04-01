@@ -1,0 +1,2 @@
+DELETE FROM cursos
+WHERE id = 2
